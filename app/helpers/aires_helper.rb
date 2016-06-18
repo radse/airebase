@@ -1,0 +1,2 @@
+module AiresHelper
+end

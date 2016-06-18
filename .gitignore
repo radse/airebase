@@ -18,3 +18,4 @@
 
 # Ignore the default Mysql databse
 /config/database.yml
+/config/secrets.yml
