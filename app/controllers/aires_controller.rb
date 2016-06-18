@@ -1,5 +1,6 @@
 class AiresController < ApplicationController
   before_action :find_aire, only: [:show, :edit, :update, :destroy]
+
   def index
     @aires = Aire.all.order("created_at DESC")
   end
@@ -19,6 +20,21 @@ class AiresController < ApplicationController
       render 'new'
     end
   end
+
+  def edit
+  end
+
+  def update
+    if @aire.update(aire_params)
+      redirect_to aire_path(@aire)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+  end
+
 
   private
 
