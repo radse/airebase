@@ -1,2 +1,8 @@
 <h1>Nueva Ficha</h1>
-<%= render '_form' %>
+<%= simple_form_for @aire do |f| %>
+<%= f.input :marca , label: "Marca o Fabricante" %>
+<%= f.input :modelo_conjunto, label: "Modelo del Conjunto" %>
+<%= f.input :modelo_ui, label: "Modelo Unidad Interior" %>
+<%= f.input :modelo_ue, label: "Modelo Unidad Exterior" %>
+<%= f.button :submit %>
+<% end %>

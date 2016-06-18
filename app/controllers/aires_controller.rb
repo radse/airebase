@@ -33,6 +33,8 @@ class AiresController < ApplicationController
   end
 
   def destroy
+    @aire.destroy
+    redirect_to root_path
   end
 
 
