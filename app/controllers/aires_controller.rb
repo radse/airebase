@@ -9,11 +9,11 @@ class AiresController < ApplicationController
   end
 
   def new
-    @aire = Aire.new
+    @aire = current_user.aire.build
   end
 
   def create
-    @aire = Aire.new(aire_params)
+    @aire = current_user.aire.build(aire_params)
     if @aire.save
       redirect_to root_path
     else
