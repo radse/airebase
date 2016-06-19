@@ -2,7 +2,12 @@ class AiresController < ApplicationController
   before_action :find_aire, only: [:show, :edit, :update, :destroy]
 
   def index
+    if params[:marca].blank?
     @aires = Aire.all.order("created_at DESC")
+  else
+    @marca_id = Marca.find_by(nombre: params[:marca]).id
+    @aires = Aire.where(:marca_id => @marca_id).order("created_at DESC")
+  end
   end
 
   def show
