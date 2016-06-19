@@ -1,8 +1,12 @@
-<h2><%= @aire.marca %></h2>
 <h3><%= @aire.modelo_conjunto %></h3>
 <h4><%= @aire.modelo_ui %></h4>
 <h4><%= @aire.modelo_ue %></h4>
 
-<%= link_to "Atrás", root_path %>
-<%= link_to "Editar", edit_aire_path(@aire) %>
-<%= link_to "Delete", aire_path(@aire), method: :delete, data: {confirm: "¿Estás seguro?"} %>
+<div class="links btn-group">
+    <% if user_signed_in? %>
+    <% if @aire.user_id == current_user.id %>
+    <%= link_to "Editar", edit_aire_path(@aire) %>
+    <%= link_to "Delete", aire_path(@aire), method: :delete, data: {confirm: "¿Estás seguro?"} %>
+    <% end %>
+    <% end %>
+</div>

@@ -11,12 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618231759) do
+ActiveRecord::Schema.define(version: 20160619015908) do
 
   create_table "aires", force: :cascade do |t|
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
-    t.string   "marca",                    limit: 255
     t.string   "modelo_conjunto",          limit: 255
     t.string   "modelo_ui",                limit: 255
     t.string   "modelo_ue",                limit: 255
@@ -32,6 +31,14 @@ ActiveRecord::Schema.define(version: 20160618231759) do
     t.integer  "capacidad_calefaccion",    limit: 4
     t.integer  "peso_ui",                  limit: 4
     t.integer  "peso_ue",                  limit: 4
+    t.integer  "user_id",                  limit: 4
+    t.integer  "marca_id",                 limit: 4
+  end
+
+  create_table "marcas", force: :cascade do |t|
+    t.string   "nombre",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|
