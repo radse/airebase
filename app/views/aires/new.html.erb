@@ -1,5 +1,6 @@
 <h1>Nueva Ficha</h1>
 <%= simple_form_for @aire do |f| %>
+<%= select_tag(:marca_id, options_for_select(@marcas), :prompt => "Seleccione una Marca") %>
 <%= f.input :modelo_conjunto, label: "Modelo del Conjunto" %>
 <%= f.input :modelo_ui, label: "Modelo Unidad Interior" %>
 <%= f.input :modelo_ue, label: "Modelo Unidad Exterior" %>

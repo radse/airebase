@@ -10,10 +10,12 @@ class AiresController < ApplicationController
 
   def new
     @aire = current_user.aires.build
+    @marcas = Marca.all.map { |m| [m.nombre, m.id]  }
   end
 
   def create
     @aire = current_user.aires.build(aire_params)
+    @aire.marca_id = params[:marca_id]
     if @aire.save
       redirect_to root_path
     else
@@ -22,9 +24,12 @@ class AiresController < ApplicationController
   end
 
   def edit
+    @marcas = Marca.all.map { |m| [m.nombre, m.id]  }
   end
 
   def update
+    @aire.marca_id = params[:marca_id]
+
     if @aire.update(aire_params)
       redirect_to aire_path(@aire)
     else
@@ -41,7 +46,7 @@ class AiresController < ApplicationController
   private
 
   def aire_params
-    params.require(:aire).permit(:marca, :modelo_conjunto, :modelo_ui, :modelo_ue)
+    params.require(:aire).permit(:marca_id, :modelo_conjunto, :modelo_ui, :modelo_ue)
   end
 
   def find_aire
