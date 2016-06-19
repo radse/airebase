@@ -1,5 +1,6 @@
 <h1>Editar Ficha</h1>
 <%= simple_form_for @aire, html: {multipart: true} do |f| %>
+<%= f.file_field :aire_img %>
 <%= f.select :marca_id, @marcas %>
 <%= f.input :modelo_conjunto, label: "Modelo del Conjunto" %>
 <%= f.input :modelo_ui, label: "Modelo Unidad Interior" %>

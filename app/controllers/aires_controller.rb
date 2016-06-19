@@ -51,7 +51,7 @@ class AiresController < ApplicationController
   private
 
   def aire_params
-    params.require(:aire).permit(:marca_id, :modelo_conjunto, :modelo_ui, :modelo_ue)
+    params.require(:aire).permit(:marca_id, :modelo_conjunto, :modelo_ui, :modelo_ue, :aire_img)
   end
 
   def find_aire
