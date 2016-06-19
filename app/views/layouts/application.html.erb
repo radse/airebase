@@ -25,9 +25,22 @@
                     <% end %>
                 </ul>
                 <ul class="nav navbar-nav">
-                  <% if user_signed_in? %>
-                  <li><%= link_to "Añadir Ficha", new_aire_path %></li>
-                  <% end %>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Marcas
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <% Marca.all.each do |marca| %>
+                            <li class="<%= 'active' if params[:marca] == marca.nombre %>">
+                                <%= link_to marca.nombre, aires_path(marca: marca.nombre), class: "link" %>
+                            </li>
+                            <% end %>
+                        </ul>
+                    </li>
+                    <% if user_signed_in? %>
+                    <li><%= link_to "Añadir Ficha", new_aire_path %></li>
+                    <% end %>
                 </ul>
 
             </div>
